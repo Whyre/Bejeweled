@@ -26,6 +26,40 @@ public class Jewel {
     
     private int offset;
     
+    static{
+    	BufferedImage img1,img2,img3,img4,img5,img6 = null;
+        try {
+        	img1 = ImageIO.read(new File("images/fire.jpg"));
+        }catch(IOException e){
+        	e.printStackTrace();
+        }
+        try {
+        	img2 = ImageIO.read(new File("images/yellow.jpg"));
+        }catch(IOException e){
+        	e.printStackTrace();
+        }
+        try {
+        	img3 = ImageIO.read(new File("images/blue.jpg"));
+        }catch(IOException e){
+        	e.printStackTrace();
+        }
+        try {
+        	img4 = ImageIO.read(new File("images/green.jpg"));
+        }catch(IOException e){
+        	e.printStackTrace();
+        }
+        try {
+        	img5 = ImageIO.read(new File("images/purple.jpg"));
+        }catch(IOException e){
+        	e.printStackTrace();
+        }
+        try {
+        	img6 = ImageIO.read(new File("images/heart.png"));
+        }catch(IOException e){
+        	e.printStackTrace();
+        }
+    }
+    
     public Jewel() {
         type = (int) (Math.random() * 6);
         selected = false;
@@ -40,19 +74,15 @@ public class Jewel {
     	return type;
     }
     
+    
+    
     public void paint(int x, int y, Graphics2D g, Component c) {
         switch(type) {
             case RED:
-            /*	BufferedImage img1 = null;
-                try {
-                	img1 = ImageIO.read(new File("images/fire.jpg"));
-                }catch(IOException e){
-                	e.printStackTrace();
-                }
-                g.drawImage(img1, x, y, null);*/
-            	ImageIcon icon1 = new ImageIcon(this.getClass()
+            	/*ImageIcon icon1 = new ImageIcon(this.getClass()
                         .getResource("/images/fire.jpg"));
-            	icon1.paintIcon(c,g,x,y);
+            	g.drawImage(icon1.getImage(), null, null);*/
+            	g.drawImage(img1,x,y,SIZE,SIZE,null);
                 break;
             case YELLOW:
             	/*BufferedImage img2 = null;
@@ -98,7 +128,7 @@ public class Jewel {
                 	e.printStackTrace();
                 }
             	g.drawImage(img5, x, y, null);*/
-            	ImageIcon icon5 = new ImageIcon(c.getClass()
+            	ImageIcon icon5 = new ImageIcon(this.getClass()
                         .getResource("/images/purple.jpg"));
             	icon5.paintIcon(c,g,x,y);
                 break;
