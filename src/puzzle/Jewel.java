@@ -26,8 +26,10 @@ public class Jewel {
     
     private int offset;
     
+    private static BufferedImage img1,img2,img3,img4,img5,img6 = null;
+    
     static{
-    	BufferedImage img1,img2,img3,img4,img5,img6 = null;
+    	
         try {
         	img1 = ImageIO.read(new File("images/fire.jpg"));
         }catch(IOException e){
@@ -85,63 +87,33 @@ public class Jewel {
             	g.drawImage(img1,x,y,SIZE,SIZE,null);
                 break;
             case YELLOW:
-            	/*BufferedImage img2 = null;
-                try {
-                	img2 = ImageIO.read(new File("images/yellow.jpg"));
-                }catch(IOException e){
-                	e.printStackTrace();
-                }
-                g.drawImage(img2, x, y, null);*/
-            	ImageIcon icon2 = new ImageIcon(this.getClass()
+            	g.drawImage(img2,x,y,SIZE,SIZE,null);
+            	/*ImageIcon icon2 = new ImageIcon(this.getClass()
                         .getResource("/images/yellow.jpg"));
-            	icon2.paintIcon(c,g,x,y);
+            	icon2.paintIcon(c,g,x,y);*/
                 break;
             case BLUE:
-            	/*BufferedImage img3 = null;
-                try {
-                	img3 = ImageIO.read(new File("images/blue.jpg"));
-                }catch(IOException e){
-                	e.printStackTrace();
-                }
-                g.drawImage(img3, x, y, null);*/
-            	ImageIcon icon3 = new ImageIcon(this.getClass()
+            	g.drawImage(img3,x,y,SIZE,SIZE,null);
+            	/*ImageIcon icon3 = new ImageIcon(this.getClass()
                         .getResource("/images/blue.jpg"));
-            	icon3.paintIcon(c,g,x,y);
+            	icon3.paintIcon(c,g,x,y);*/
                 break;
             case GREEN:
-            	/*BufferedImage img4 = null;
-                try {
-                	img4 = ImageIO.read(new File("images/green.jpg"));
-                }catch(IOException e){
-                	e.printStackTrace();
-                }
-            	g.drawImage(img4, x, y, null);*/
-            	ImageIcon icon4 = new ImageIcon(this.getClass()
+            	g.drawImage(img4,x,y,SIZE,SIZE,null);
+            	/*ImageIcon icon4 = new ImageIcon(this.getClass()
                         .getResource("/images/green.jpg"));
-            	icon4.paintIcon(c,g,x,y);
+            	icon4.paintIcon(c,g,x,y);*/
                 break;
             case PURPLE:
-            	/*BufferedImage img5 = null;
-                try {
-                	img5 = ImageIO.read(new File("images/purple.jpg"));
-                }catch(IOException e){
-                	e.printStackTrace();
-                }
-            	g.drawImage(img5, x, y, null);*/
-            	ImageIcon icon5 = new ImageIcon(this.getClass()
+            	g.drawImage(img5,x,y,SIZE,SIZE,null);
+            	/*ImageIcon icon5 = new ImageIcon(this.getClass()
                         .getResource("/images/purple.jpg"));
-            	icon5.paintIcon(c,g,x,y);
+            	icon5.paintIcon(c,g,x,y);*/
                 break;
             case PINK:
-            	/*BufferedImage img6 = null;
-                try {
-                	img6 = ImageIO.read(new File("images/heart.png"));
-                }catch(IOException e){
-                	e.printStackTrace();
-                }
-            	g.drawImage(img6, x, y, null);*/
-            	ImageIcon icon6 = new ImageIcon(this.getClass().getResource("images/heart.png"));
-            	icon6.paintIcon(c,g,x,y);
+            	g.drawImage(img1,x,y,SIZE,SIZE,null);
+            	/*ImageIcon icon6 = new ImageIcon(this.getClass().getResource("images/heart.png"));
+            	icon6.paintIcon(c,g,x,y);*/
                 break;
             
         }
