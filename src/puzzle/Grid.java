@@ -35,56 +35,54 @@ public class Grid {
 	
 	public void update() {
 		testThree();
+		
 	}
 	
+
 	public void testThree() {
 		ArrayList<Point> toKill = new ArrayList<Point>();
 		for(int r = 0; r < Puzzle.ROWS; r++) {
 			//int prevType = -1;
 			//int n = 1;
 			for(int c = 0; c < Puzzle.COLS; c++) {
-				int type = jewels[r][c].getType();
-
-				for(int i=1;i<Puzzle.COLS-c;i++){
+				//int type = 0;
+				//type = jewels[r][c].getType();
+				for (int i=1; i<Puzzle.ROWS-r;i++){
 					int n = 1;
-					if(jewels[r][c+i].getType()==type){
-						//System.out.println("stuff1");
-						i++;
+					if (jewels[r][c].getType() == jewels[r+i][c].getType()){
 						n++;
-					}else{
-						if (n>=3){
-							for(int k=0;k<n;k++){
-								toKill.add(new Point(r,c+k));
-							}
-						}
+						System.out.println("asdf1");
 					}
+					if (n>=3){
+						System.out.println("asdf");
+						for (int k=0;k<n;k++){
+							toKill.add(new Point(r+k,c));
+						}
+					
+						
+					}
+				
 				}
 				
-				
-				
-				/*if(jewels[r][c+1].getType()== type) {
-					if (jewels[r][c+2].getType() == type){
-						toKill.add(new Point(r, c));
-					}*/
-					//n++;
-				//}
-				//else {
-					//if(n>=3) {
-						//for(int i = 0; i < n; i++) {
-							//toKill.add(new Point(r, c-i));
+				/*if (jewels[r][c].getType() == jewels[r+1][c].getType()){
+				//if (jewels[r+1][c].getType() == type){
+						if(jewels[r+2][c].getType()==jewels[r][c].getType()){
+							System.out.println("Match 3"+r+", "+c);
+							toKill.add(new Point(r,c));
+							toKill.add(new Point(r+1,c));
+							toKill.add(new Point(r+2,c));
 						}
 					//}
-					//System.out.println(n);
-					//n=1;
-				//}
-			
-				//prevType = type;
+				}*/
+				
+
 			}
 		//}
 		
 		for(Point p : toKill) {
-			jewels[p.x][p.y].setSelected(true);
-			//select(p);
+			//jewels[p.x][p.y].setSelected(true);
+			select(p);
+		}
 		}
 	}
 	

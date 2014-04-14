@@ -18,7 +18,7 @@ import javax.swing.JPanel;
  */
 public class Puzzle implements MouseListener, ActionListener {
 
-	public static final int ROWS = 6, COLS = 7;
+	public static final int ROWS = 6, COLS = 5;
 	public static final int WIDTH = ROWS*Jewel.SIZE, HEIGHT = COLS*Jewel.SIZE;
 	private GamePanel gamePanel = new GamePanel();
 	private JFrame frame;
@@ -37,6 +37,7 @@ public class Puzzle implements MouseListener, ActionListener {
 		//frame.setSize(WIDTH, HEIGHT);
 		grid = new Grid();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setResizable(false);
 
 		gamePanel = new GamePanel();
 		gamePanel.setPreferredSize(new Dimension(WIDTH, HEIGHT));
@@ -51,6 +52,7 @@ public class Puzzle implements MouseListener, ActionListener {
 
 		frame.add(gamePanel);
 		frame.pack();
+		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 
 	}
