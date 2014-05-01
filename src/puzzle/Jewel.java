@@ -111,7 +111,7 @@ public class Jewel {
             	icon5.paintIcon(c,g,x,y);*/
                 break;
             case PINK:
-            	g.drawImage(img1,x,y,SIZE,SIZE,null);
+            	g.drawImage(img6,x,y,SIZE,SIZE,null);
             	/*ImageIcon icon6 = new ImageIcon(this.getClass().getResource("images/heart.png"));
             	icon6.paintIcon(c,g,x,y);*/
                 break;
@@ -119,7 +119,7 @@ public class Jewel {
         }
         
         if(selected) {
-            g.setColor(Color.BLACK);
+            g.setColor(Color.YELLOW);
             g.setStroke(new BasicStroke(3));
             g.drawRect(x, y, SIZE, SIZE);
         }
