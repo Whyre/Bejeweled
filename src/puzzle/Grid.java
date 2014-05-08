@@ -8,10 +8,12 @@ import java.util.Set;
 
 public class Grid {
 	private Jewel[][] jewels;
+        private Set<Point> toKill;
 
 	public Grid() {
 		jewels = new Jewel[Puzzle.ROWS][Puzzle.COLS];
-
+                toKill = new HashSet<>();
+                
 		for(int r=0; r<Puzzle.ROWS; r++) {
 			for(int c=0;c<Puzzle.COLS;c++) {
 				jewels[r][c] = new Jewel();
@@ -36,12 +38,16 @@ public class Grid {
 
 	public void update() {
 		testThree();
-
+                for (Point p : toKill){
+                    jewels[p.x][p.y].fade();
+                    for (int c=p.y-1;c>=0;c--){
+                        jewels[p.x][c].incOffset();
+                    }
+                }
 	}
 
 
 	public void testThree() {
-		Set<Point> toKill = new HashSet<>();
 		for(int r = 0; r < Puzzle.ROWS; r++) {
                     int n = 1;
 			for(int c = 0; c < Puzzle.COLS; c++) {
@@ -56,6 +62,25 @@ public class Grid {
                                 System.out.println("asdf");
 				for (int k=0;k<n;k++){
                                     toKill.add(new Point(r,c-k));
+                                }
+                            }
+                    }
+		}
+                
+                for(int c = 0; c < Puzzle.COLS; c++) {
+                    int n = 1;
+			for(int r = 0; r < Puzzle.ROWS; r++) {
+                            if(r-1 < 0 ) continue;
+                            if (jewels[r][c].getType() == jewels[r-1][c].getType()){
+				n++;
+                            }
+                            else {
+                                n = 1;
+                            }
+                            if (n>=3){
+                                System.out.println("asdf1");
+				for (int k=0;k<n;k++){
+                                    toKill.add(new Point(r-k,c));
                                 }
                             }
                     }
