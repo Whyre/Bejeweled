@@ -1,5 +1,6 @@
 package puzzle;
 
+import java.awt.AlphaComposite;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Component;
@@ -9,7 +10,6 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 
 /**
  *
@@ -25,6 +25,7 @@ public class Jewel {
     private boolean selected;
     
     private int offset;
+    private float opacity;
     
     private static BufferedImage img1,img2,img3,img4,img5,img6 = null;
     
@@ -65,6 +66,7 @@ public class Jewel {
     public Jewel() {
         type = (int) (Math.random() * 6);
         selected = false;
+        opacity = 1f;
     }
     
     public int getType(){
@@ -79,6 +81,10 @@ public class Jewel {
     
     
     public void paint(int x, int y, Graphics2D g, Component c) {
+        
+        g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, opacity));
+        
+        y += offset;
         switch(type) {
             case RED:
             	/*ImageIcon icon1 = new ImageIcon(this.getClass()
@@ -131,5 +137,24 @@ public class Jewel {
     
     public void setOffset(int x) {
     	offset = x;
+    }
+    
+    public int getOffset(){
+        return offset;
+    }
+    
+    public boolean isOffsetFull(){
+        return offset>=SIZE;
+    }
+    
+    public void incOffset(){
+        offset++;
+    }
+    
+    public void fade(){
+        if(opacity-0.2f>=0){
+         opacity=opacity-0.2f;
+        }
+
     }
 }
